@@ -71,7 +71,7 @@ article {
 }
 
 /* Fontello */
-.icon-music:before {
+/* .icon-music:before {
   color: black !important;
   font-size: 3em;
   content: '\f2dc' !important;
@@ -79,4 +79,4 @@ article {
 .icon-music:hover:before {
   color: yellow !important;
   content: '\e800' !important;
-}
+} */
