@@ -69,3 +69,14 @@ article {
     width: 50%;
   }
 }
+
+/* Fontello */
+.icon-music:before {
+  color: black !important;
+  font-size: 3em;
+  content: '\f2dc' !important;
+}
+.icon-music:hover:before {
+  color: yellow !important;
+  content: '\e800' !important;
+}
