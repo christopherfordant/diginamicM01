@@ -1,0 +1,26 @@
+/* Définition de la variable */
+$primary-color: yellow;
+
+/* Mixin */
+@mixin button() {
+  display: table;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+header {
+  h1 {
+    color: red;
+    /* Utilisation de la variable */
+    border-bottom: 1px solid $primary-color;
+  }
+  h2 {
+    @include button();
+  }
+}
+footer {
+  p {
+    @include button();
+  }
+}

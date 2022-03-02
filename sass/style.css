@@ -1,0 +1,23 @@
+@charset "UTF-8";
+/* Définition de la variable */
+/* Mixin */
+header h1 {
+  color: red;
+  /* Utilisation de la variable */
+  border-bottom: 1px solid yellow;
+}
+
+header h2 {
+  display: table;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+
+footer p {
+  display: table;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 8px;
+}
+/*# sourceMappingURL=style.css.map */
