@@ -1,0 +1,71 @@
+h1 {
+  font-weight: bold;
+  font-style: italic;
+  font-size: 2rem;/* 2 ;x 16 = 32px */
+  margin: 0.5rem 0;
+}
+div {
+  font-size: 1.5rem;
+}
+body {
+  border: 5px solid green;
+}
+div div > div, 
+h1 {
+  color: blueviolet;
+}
+
+.warning-title {
+  color: green;
+}
+.big {
+  font-size: 3rem;
+}
+#main-title {
+  font-size: 6rem !important;
+}
+* {
+  border: 1px solid red !important;
+}
+span {
+  display: block;
+  border: 3px solid black !important;
+  margin: 40px 0;
+  padding: 100px;
+  text-align: justify;
+  line-height: 1.5em;
+}
+
+
+.legend {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  padding: 15px;
+  width: 100%;
+  box-sizing: border-box;
+  background-color: rgba(255, 255, 255, 0.5);
+
+}
+img {
+  max-width: 100%;
+}
+
+/* Mobile first  */
+article {
+  display: inline-block;
+  position: relative;
+  width: 100%;
+}
+/* Grand écran */
+@media screen and (min-width: 1200px) {
+  article {
+    width: 33%;
+  }
+}
+/* Moyen écran */
+@media screen and (min-width: 980px) and (max-width: 1200px) {
+  article {
+    width: 50%;
+  }
+}
