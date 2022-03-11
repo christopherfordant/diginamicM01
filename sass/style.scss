@@ -2,10 +2,10 @@
 $primary-color: yellow;
 
 /* Mixin */
-@mixin button() {
+@mixin button($color: red) {
   display: table;
   padding: 5px;
-  border: 1px solid black;
+  border: 1px solid $color;
   border-radius: 8px;
 }
 
@@ -16,11 +16,11 @@ header {
     border-bottom: 1px solid $primary-color;
   }
   h2 {
-    @include button();
+    @include button(blue);
   }
 }
 footer {
   p {
-    @include button();
+    @include button(green);
   }
 }

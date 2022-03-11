@@ -10,14 +10,14 @@ header h1 {
 header h2 {
   display: table;
   padding: 5px;
-  border: 1px solid black;
+  border: 1px solid blue;
   border-radius: 8px;
 }
 
 footer p {
   display: table;
   padding: 5px;
-  border: 1px solid black;
+  border: 1px solid green;
   border-radius: 8px;
 }
 /*# sourceMappingURL=style.css.map */
