@@ -1,32 +1,48 @@
 (function () {
-
   /**
-   * Fonction constructeur d'utilisateur
-   * @param {String} firstname 
-   * @param {String} name 
-   * @param {Number} uid 
-   * @returns {Object}
+   * Fonction constructeur de Pokemon
+   * @param {string} name 
+   * @param {string} type 
+   * @param {string} nature 
+   * @returns object
    */
-  function User(firstname, lastname, uid) {
-    // Propriétés
-    this.firstname = firstname;
-    this.lastname = lastname;
-    this.uid = uid;
+  function Pokemon(name, type, nature) {
+    this.name = name;
+    this.type = type;
+    this.nature = nature;
+  }
+  // Ajout d'une propriété (méthode) au prototype de la fonction condtructeur Pokemon (factorisation)
+  Pokemon.prototype.attack = function () {
+    return Math.random() * 1000;
+  }
+  Pokemon.prototype.trademark = "Nintendo";
+  // Instanciation
+  const tadmorv = new Pokemon("Tadmorv", "Poison", "Jaloux");
+  const pikachu = new Pokemon("Pikachu", "Electrique", "Discret");
 
-    // Une propriété de type fonction s'appelle une méthode
-    this.sePresenter = function () {
-      console.log(`Bonjour, je m'appelle ${this.firstname} ${this.lastname}`);
+  console.log(`tadmorv : `, tadmorv);
+  console.log(`Marque de tadmorv : `, tadmorv.trademark);
+  console.log(`pikachu : `, pikachu);
+
+  if (tadmorv.attack() > pikachu.attack()) {
+    console.log(`Tadmorv gagne `);
+  } else {
+    console.log(`Pikachu gagne `);
+  }
+
+  // objets littéraux qui utilisent la syntaxe json (javascript objet notation)
+  const dracaufeu = {
+    "name": "Dracaufeu",
+    "type": "Feu",
+    "nature": "Timide",
+    "attack": function () {
+      return Math.random() * 1000;
     }
   }
-  // Création d'instance d'utilisateur avec new
-  const bob = new User("Bob", "Dylan", 1);
-  const simon = new User("Simon", "Molo", 2);
-  console.log(`bob : `, bob);
-  // Afficher dans la console le uid
-  console.log(`uid de bob : `, bob.uid);
-
-  // Simon se présente
-  simon.sePresenter();
+  console.log(dracaufeu);
+  console.log(dracaufeu.attack());
+  console.log(dracaufeu.hasOwnProperty("name"));
+  console.log(dracaufeu.hasOwnProperty("qsdf"));
 
 })();
 
