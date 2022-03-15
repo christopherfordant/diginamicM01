@@ -18,6 +18,12 @@
       }
       return markup;
     }
-    const btn = createMarkup("button", "Ajouter un paragraphe", document.body);
+    const btn = createMarkup("button", "Ajouter un paragraphe", document.body, { name: "class", value: "btn" });
+
+    // Ajout d'une fonction gestionnaire d'événement sur le bouton
+    btn.onclick = function () {
+      createMarkup("p", "Lorem Ipsum", document.body);
+    }
+
   }
 })();
