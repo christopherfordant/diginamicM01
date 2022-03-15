@@ -11,7 +11,7 @@
     this.type = type;
     this.nature = nature;
   }
-  // Ajout d'une propriété (méthode) au prototype de la fonction condtructeur Pokemon (factorisation)
+  // Ajout d'une propriété (méthode) au prototype de la fonction constructeur Pokemon (factorisation)
   Pokemon.prototype.attack = function () {
     return Math.random() * 1000;
   }
