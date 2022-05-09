@@ -15,6 +15,20 @@
                     .then(user => {
                         console.log("user :", user);
                         document.getElementById("msg-form").textContent = "Vous êtes connectés";
+                        user = {
+                            uid: user.current_user.uid,
+                            name: user.current_user.name,
+                            pwd: pwd
+                        }
+                        return getTerms(user, token);
+                    })
+                    .then(terms => {
+
+                        // On affiche les terms dans le body
+                        for (let term of terms) {
+                            console.log(term);
+                            createMarkup("button", term.name, document.body);
+                        }
                     })
                     .catch(error => {
                         document.getElementById("msg-form").textContent = "Problème d'identification";
@@ -72,14 +86,16 @@
                     }
                 })
         }
-        /**
-   * Récupère les termes (rubriques) d'un utilisateur donné
-   * @param {object} user 
-   * @param {string} token 
-   * 
-   * @returns promise
-   */
-  function getTerms(user, token) {
+
+
+        /** 
+        * Récupère les termes (rubriques) d'un utilisateur donné
+        * @param {object} user 
+        * @param {string} token 
+        * 
+        * @returns promise
+        */
+        function getTerms(user, token) {
             // création de la requête
             console.log("Dans getTerms -  User = ", user);
             return fetch("https://www.coopernet.fr/memo/themes/" + user.uid, {
@@ -105,6 +121,25 @@
                         throw new Error("Problème de data " + data.message);
                     }
                 });
+        }
+
+        /**
+   * Crée un élément du dom, lui ajoute du texte, le place comme dernier
+   * enfant de parent et ajout un attribut en utilisant le paramètre attribute
+   * @param {String} markup_name 
+   * @param {String} text 
+   * @param {domElement} parent 
+   * @param {Object} attribute  (doit comprendre les propriétés name et value)
+   * @returns domElement
+   */
+        function createMarkup(markup_name, text, parent, attribute) {
+            const markup = document.createElement(markup_name);
+            markup.textContent = text;
+            parent.appendChild(markup);
+            if (attribute && attribute.hasOwnProperty("name")) {
+                markup.setAttribute(attribute.name, attribute.value);
+            }
+            return markup;
         }
 
 
