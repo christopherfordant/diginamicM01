@@ -1,18 +1,20 @@
 import FetchCoopernet from "./services/FetchCoopernet.js";
 (function () {
-  window.onload = function () {
-    const form = document.querySelector("form");
-    form.onsubmit = function(e) {
-      e.preventDefault();
-      const login = document.querySelector("#login").value;
-      const pwd = document.querySelector("#pwd").value;
-      console.log(login);
-      console.log(pwd);
-    }
+  // instanciation de FetchCoopernet
+  const fc = new FetchCoopernet();
 
-   
-   
+  // gestion du login avec utilisation de callback
+  fc.handleFormSubmit(handleSuccessLogin, handleFailLogin);
 
+  function handleSuccessLogin() {
+    console.log("Dans handleSuccessLogin");
+    // Récupération des termes (rubriques) de l'utilisateur via getTerms
+  }
+
+  function handleFailLogin() {
+    console.log("Dans handleFailLogin");
+    // Message pour indiquer que le login et/ou le mot de passe sont erronés
+    // Reproposer le formulaire
   }
 
 })();

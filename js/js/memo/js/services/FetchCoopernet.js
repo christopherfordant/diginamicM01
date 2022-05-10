@@ -2,7 +2,28 @@ export default class FetchCoopernet {
     constructor() {
         this.target_url = "https://www.coopernet.fr";
         this.token = "";
+        this.user = {};
         this.getToken();
+        
+    }
+
+    handleFormSubmit(success, fail) {
+        const form = document.querySelector("form");
+        form.onsubmit = (e) => {
+            e.preventDefault();
+            
+            this.getUser(document.querySelector("#login").value, document.querySelector("#pwd").value)
+                .then(user => {
+                    console.log(user);
+                    this.user = user;
+                    form.remove();
+                    success();
+                })
+                .catch(error => {
+                    console.error("Erreur attrapée : ", error);
+                    fail();
+                });
+        }
     }
     /**
     * 
@@ -23,13 +44,13 @@ export default class FetchCoopernet {
             .catch(error => { console.error("Erreur attrapée : ", error) });
     }
 
-    getUser() {
+    getUser(login, pwd) {
         return fetch(`${this.target_url}/user/login?_format=json`, {// endpoint
             credentials: "same-origin",
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                "X-CSRF-Token": token
+                "X-CSRF-Token": this.token
             },
             body: JSON.stringify({
                 name: login,
